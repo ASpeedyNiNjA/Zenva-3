@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rig;
     public float jumpForce;
     public SpriteRenderer sr;
+    public TextMeshProUGUI scoreText;
 
     public int score;
 
@@ -61,6 +63,6 @@ public class PlayerController : MonoBehaviour
     public void AddScore(int amount)
     {
         score += amount;
-        //Update Score Text UI Here:
+        scoreText.text = "Score: " + score;
     }
 }
