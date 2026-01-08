@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -33,6 +34,11 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
             rig.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
+        //My code
+        if(this.transform.position.y < -5)
+        {
+            GameOver();
+        }
 
 
     }
@@ -43,5 +49,10 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
         }
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
