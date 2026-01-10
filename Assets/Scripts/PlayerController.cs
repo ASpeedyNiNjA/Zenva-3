@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.GetContact(0).normal == Vector2.up)
+        if(Vector2.Dot(collision.GetContact(0).normal, Vector2.up) > 0.8f)
         {
             isGrounded = true;
         }
